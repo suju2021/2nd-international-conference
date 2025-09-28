@@ -1,237 +1,31 @@
-/* Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, sans-serif;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  // ===== Highlight active link =====
+  const navLinks = document.querySelectorAll(".nav-links a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
 
-/* Top Header */
-.top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background: #fff;
-  flex-wrap: wrap;
-}
-.logo img {
-  width: 200px;
-  height: auto;
-  object-fit: contain;
-}
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-.social-icons a {
-  text-decoration: none;
-  color: white;
-  background: #f47c20;
-  padding: 8px 10px;
-  border-radius: 5px;
-  display: inline-block;
-  transition: 0.3s;
-}
-.social-icons a:hover {
-  background: #d9650a;
-}
+      // Close mobile menu after clicking a link
+      const navLinksDiv = document.querySelector(".nav-links");
+      if (navLinksDiv.classList.contains("show")) {
+        navLinksDiv.classList.remove("show");
+      }
+    });
+  });
 
-/* Navigation Bar */
-nav {
-  background: #000;
-  padding: 15px 20px;
-  position: relative;
-}
-.nav-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  transition: all 0.3s ease;
-}
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 8px 12px;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-nav a:hover,
-nav a.active {
-  color: #f47c20;
-  font-weight: bold;
-}
+  // ===== Hamburger toggle for mobile =====
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinksDiv = document.querySelector(".nav-links");
 
-/* Hamburger Menu */
-.nav-toggle {
-  display: none;
-  font-size: 1.3rem;
-  color: white;
-  position: absolute;
-  right: 20px;
-  top: 0px;
-  cursor: pointer;
-}
-/* Animation */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translate(-50%, -40%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
-}
+  toggle.addEventListener("click", () => {
+    navLinksDiv.classList.toggle("show");
+  });
 
-/* Responsive Styles */
-
-/* Tablets (max-width: 1024px) */
-@media (max-width: 1024px) {
-  .logo img { width: 180px; }
-}
-
-/* Mobile & Small Laptops (max-width: 768px) */
-@media (max-width: 768px){
-  .top-header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-  }
-  .logo img {
-    width: 140px;
-  }
-  .social-icons a {
-    padding: 6px 8px;
-    font-size: 0.9rem;
-  }
-
-  /* Hamburger menu */
-.nav-links {
-    flex-direction: column;
-    gap: 0px;
-    display: none; /* hidden by default */
-    width: 50%;
-    background: rgba(0, 0, 0, 0.8); /* semi-transparent gray */
-    position: absolute;
-    top: 31px;
-    left: 75%;
-    transform: translateX(-50%); /* center the menu horizontally */
-    text-align: center;
-    padding: 0px 0;
-    transition: all 0.3s ease;
-    z-index: 1000;
-    border-radius: 5px; /* optional: rounded corners */
-}
-
-  .nav-links.show {
-    display: flex; /* show when toggled */
-  }
-  .nav-toggle {
-    display: block;
-    font-size: 1.8rem;
-    color: white;
-    cursor: pointer;
-    z-index: 1100;
-  }
-}
-/* Hero Banner */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  overflow: hidden;
-}
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.7; /* Transparent look */
-}
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  animation: fadeInUp 1.5s ease forwards;
-}
-.hero-text h1 {
-  font-size: 3rem;
-  margin-bottom: 2px;
-  animation: slideIn 2s ease forwards;
-}
-.hero-text h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  animation: fadeIn 3s ease forwards;
-}
-.hero-text p {
-  font-size: 1.2rem;
-  animation: fadeIn 3.5s ease forwards;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translate(-50%, -40%); }
-  to { opacity: 1; transform: translate(-50%, -50%); }
-}
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(-40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@media (max-width: 768px) {
-.hero-text h1 {
-    font-size: 1.11rem;
-  }
-  .hero-text h2 {
-    font-size: 0.99rem;
-  }
-  .hero-text p {
-    font-size: 0.8rem;
-  }
-.hero-img {
-  width: 500px;
-  height: 200px;
-  object-fit: cover;
-}
-.hero-text {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  animation: fadeInUp 1.5s ease forwards;
-}
-}
-
-@media (min-width: 1024px) {
-  .hero-text h1 {
-    font-size: 3.1rem;
-  }
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-  .hero-text p {
-    font-size: 1.3rem;
-  }
-.hero-img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-}
-.hero-text {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  animation: fadeInUp 1.5s ease forwards;
-}
-}
+  // Optional: Close mobile menu if clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navLinksDiv.contains(e.target) && !toggle.contains(e.target)) {
+      navLinksDiv.classList.remove("show");
+    }
+  });
+});
