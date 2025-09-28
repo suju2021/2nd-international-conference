@@ -186,13 +186,13 @@ nav a.active {
 }
 @media (max-width: 768px) {
 .hero-text h1 {
-    font-size: 0.95rem;
+    font-size: 0.8rem;
   }
   .hero-text h2 {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
   .hero-text p {
-    font-size: 0.65rem;
+    font-size: 0.4rem;
   }
 .hero-img {
   width: 500px;
@@ -235,6 +235,7 @@ nav a.active {
   animation: fadeInUp 1.5s ease forwards;
 }
 }
+
 
 
 
