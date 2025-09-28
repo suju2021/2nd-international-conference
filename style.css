@@ -189,11 +189,12 @@ nav a.active {
     font-size: 0.9rem;
   }
   .hero-text h2 {
-    font-size: 0.99rem;
+    font-size: 0.6rem;
   }
   .hero-text p {
-    font-size: 0.5rem;
+    font-size: 0.3rem;
   }
+
 .hero-img {
   width: 500px;
   height: 200px;
@@ -235,6 +236,7 @@ nav a.active {
   animation: fadeInUp 1.5s ease forwards;
 }
 }
+
 
 
 
