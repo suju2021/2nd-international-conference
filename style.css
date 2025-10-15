@@ -230,13 +230,13 @@ nav a.active {
 }
 @media (max-width: 768px) {
 .hero-text h1 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .hero-text h2 {
     font-size: 0.6rem;
   }
   .hero-text h3 {
-    font-size: 0.4rem;
+    font-size: 0.6rem;
   }
 .hero-img {
   width: 500px;
@@ -349,3 +349,4 @@ nav a.active {
     animation: paintFlow 10s ease-in-out infinite alternate;
   }
 }
+
