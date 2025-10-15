@@ -328,7 +328,7 @@ nav a.active {
 @media (max-width: 768px) {
   .paint-streak {
     font-size: 0.5em;
-    padding: 5px 5px;
+    padding: 1px 1px;
   }
 
   .paint-streak::before {
@@ -341,7 +341,7 @@ nav a.active {
 @media (max-width: 1024px) {
   .paint-streak {
     font-size: 0.5em;
-    padding: 5px 2.5px;
+    padding: 1px 1px;
   }
 
   .paint-streak::before {
@@ -349,4 +349,5 @@ nav a.active {
     animation: paintFlow 10s ease-in-out infinite alternate;
   }
 }
+
 
