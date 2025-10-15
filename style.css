@@ -129,7 +129,7 @@ nav a.active {
 
 /* Tablets (max-width: 1024px) */
 @media (max-width: 1024px) {
-  .logo img { width: 180px; }
+  .logo img { width: 200px; }
 }
 
 /* Mobile & Small Laptops (max-width: 768px) */
@@ -202,17 +202,17 @@ nav a.active {
 }
 .hero-text h1 {
   font-size: 3rem;
-  margin-bottom: 2px;
+  margin-bottom: 0.5px;
   animation: slideIn 2s ease forwards;
 }
 .hero-text h2 {
   font-size: 1.8rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.5x;
   animation: fadeIn 3s ease forwards;
 }
-.hero-text p {
+.hero-text h3 {
   font-size: 1.2rem;
-  animation: fadeIn 3.5s ease forwards;
+  animation: fadeIn 3s ease forwards;
 }
 
 /* Animations */
@@ -235,7 +235,7 @@ nav a.active {
   .hero-text h2 {
     font-size: 0.6rem;
   }
-  .hero-text p {
+  .hero-text h3 {
     font-size: 0.4rem;
   }
 .hero-img {
@@ -261,7 +261,7 @@ nav a.active {
   .hero-text h2 {
     font-size: 2rem;
   }
-  .hero-text p {
+  .hero-text h3 {
     font-size: 1.3rem;
   }
 .hero-img {
@@ -328,7 +328,7 @@ nav a.active {
 @media (max-width: 768px) {
   .paint-streak {
     font-size: 0.5em;
-    padding: 1px 1px;
+    padding: 2.5px 5px;
   }
 
   .paint-streak::before {
@@ -341,7 +341,7 @@ nav a.active {
 @media (max-width: 1024px) {
   .paint-streak {
     font-size: 0.5em;
-    padding: 1px 1px;
+    padding: 2.5px 5px;
   }
 
   .paint-streak::before {
@@ -349,5 +349,3 @@ nav a.active {
     animation: paintFlow 10s ease-in-out infinite alternate;
   }
 }
-
-
