@@ -6,6 +6,7 @@
 }
 body {
   font-family: Arial, sans-serif;
+  background: #01185e;
 }
 
 /* Top Header */
@@ -14,7 +15,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: #fff;
+  background: #01185e;
   flex-wrap: wrap;
 }
 .logo img {
@@ -29,19 +30,19 @@ body {
 .social-icons a {
   text-decoration: none;
   color: white;
-  background: #f47c20;
+  background:#c49c64;
   padding: 8px 10px;
   border-radius: 5px;
   display: inline-block;
   transition: 0.3s;
 }
 .social-icons a:hover {
-  background: #d9650a;
+  background:#c49c64;
 }
 
 /* Navigation Bar */
 nav {
-  background: #000;
+  background: #c49c64;
   padding: 15px 20px;
   position: relative;
 }
@@ -62,7 +63,7 @@ nav a {
 }
 nav a:hover,
 nav a.active {
-  color: #f47c20;
+  color: #01185e;
   font-weight: bold;
 }
 
@@ -81,7 +82,49 @@ nav a.active {
   from { opacity: 0; transform: translate(-50%, -40%); }
   to { opacity: 1; transform: translate(-50%, -50%); }
 }
+ /* Hero Text with Paint Streaks */
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #c49c64;
+      animation: fadeInUp 1.5s ease forwards;
+    }
 
+    /* Paint Streak Background */
+    .paint-bg {
+      position: relative;
+      display: inline-block;
+      padding: 20px 40px;
+    }
+    .paint-bg::before,
+    .paint-bg::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(90deg, #01185e, #c49c64, #01185e);
+      background-size: 300% 300%;
+      animation: moveGradient 6s ease infinite;
+      clip-path: polygon(0 20%, 100% 10%, 100% 90%, 0 80%);
+      opacity: 0.9;
+      filter: blur(1px);
+    }
+    .paint-bg::after {
+      transform: rotate(180deg);
+      opacity: 0.6;
+    }
+
+    @keyframes moveGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+ 
 /* Responsive Styles */
 
 /* Tablets (max-width: 1024px) */
@@ -110,11 +153,12 @@ nav a.active {
     flex-direction: column;
     gap: 0px;
     display: none; /* hidden by default */
-    width: 50%;
-    background: rgba(0, 0, 0, 0.8); /* semi-transparent gray */
+    width: 35%;
+    height: 825%;
+    background: rgba(196, 156, 100, 0.5); /* semi-transparent gray */
     position: absolute;
     top: 31px;
-    left: 75%;
+    left: 85%;
     transform: translateX(-50%); /* center the menu horizontally */
     text-align: center;
     padding: 0px 0;
@@ -186,17 +230,17 @@ nav a.active {
 }
 @media (max-width: 768px) {
 .hero-text h1 {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
   .hero-text h2 {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
   .hero-text p {
-    font-size: 0.4rem;
+    font-size: 0.65rem;
   }
 .hero-img {
   width: 500px;
-  height: 200px;
+  height: 175px;
   object-fit: cover;
 }
 .hero-text {
@@ -222,7 +266,7 @@ nav a.active {
   }
 .hero-img {
   width: 100%;
-  height: 400px;
+  height: 375px;
   object-fit: cover;
 }
 .hero-text {
@@ -235,12 +279,73 @@ nav a.active {
   animation: fadeInUp 1.5s ease forwards;
 }
 }
+.paint-streak {
+  position: relative;
+  display: inline-block;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 10px 10px;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
 
+.paint-streak::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    #01185e 0%,
+    #c49c64 25%,
+    #01185e 50%,
+    #c49c64 75%,
+    #01185e 100%
+  );
+  background-size: 200% 100%;
+  filter: blur(5px) contrast(1.2) brightness(1.1);
+  border-radius: 0%;
+  animation: paintFlow 10s ease-in-out infinite alternate;
+  z-index: -1;
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 40%, transparent 100%);
+}
 
+@keyframes paintFlow {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: rotate(0deg);
+  }
+}
+/* 📱 Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+  .paint-streak {
+    font-size: 0.5em;
+    padding: 5px 5px;
+  }
 
+  .paint-streak::before {
+    filter: blur(5px);
+    border-radius: 0%;
+    animation: paintFlow 10s ease-in-out infinite alternate;
+  }
+}
+/* 🌐 Tablet view (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .paint-streak {
+    font-size: 0.5em;
+    padding: 5px 2.5px;
+  }
 
-
-
-
-
-
+  .paint-streak::before {
+    filter: blur(5px) contrast(1.1);
+    animation: paintFlow 10s ease-in-out infinite alternate;
+  }
+}
