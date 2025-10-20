@@ -387,6 +387,35 @@ nav a.active {
   from { opacity: 0.3; }
   to { opacity: 1; }
 }
+.slideshow-container {
+  flex: 1;
+  max-width: 49.5%;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(196, 156, 100, 0.4);
+  background: linear-gradient(90deg, #01185e, #c49c64, #01185e);
+  background-size: 300% 300%;
+  animation: borderFlow 10s ease infinite;
+  padding: 3px; /* Space for visible border animation */
+}
+
+/* Inner content fix so image fits nicely inside the animated frame */
+.slideshow-container img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Animation keyframes */
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 /* ✅ Tablet (max-width: 1024px) */
 @media (max-width: 1024px) {
@@ -406,15 +435,35 @@ nav a.active {
   .slideshow-section {
     flex-direction: column;
     gap: 20px;
+    width: 100%;
     align-items: center;
   }
 
+  /* ✅ Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .slideshow-section {
+    display: flex;
+    flex-direction: row; /* side-by-side */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping if needed */
+    gap: 8px;
+    padding: 1px;
+  }
+
   .slideshow-container {
-    max-width: 90%;
+    flex: 1 1 48%; /* two equal-width columns */
+    max-width: 49%;
+    padding: 1px;
+    border-radius: 1px;
+    animation: borderFlow 10s ease infinite;
   }
 
   .slideshow-container img {
-    height: 1000px;
+    width: 100%;
+    height: 150px; /* smaller height for mobile */
+    object-fit: cover;
+    border-radius: 1px;
   }
-
+}
 
