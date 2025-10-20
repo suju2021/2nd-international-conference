@@ -245,7 +245,7 @@ nav a.active {
 }
 .hero-text {
   position: absolute;
-  top: 15%;
+  top: 23%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -466,4 +466,5 @@ nav a.active {
     border-radius: 1px;
   }
 }
+
 
